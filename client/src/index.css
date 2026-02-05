@@ -138,35 +138,6 @@
     /* Strict containment */
   }
 
-  .dark .glass-card::after,
-  .dark .glass-button::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 100;
-    background: radial-gradient(150px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.15) 30%,
-        rgba(255, 255, 255, 0.05) 60%,
-        transparent 100%);
-    opacity: 0;
-    transition: opacity 0.5s;
-    pointer-events: none;
-    mix-blend-mode: overlay;
-    border-radius: inherit;
-    /* Copy parent roundness */
-    background-attachment: fixed;
-    /* Keeps the gradient relative to viewport, matching cursor */
-  }
-
-  /* Only show spotlight on hover or when close (implied by mouse position) */
-  /* Actually, with background-attachment: fixed, we can just leave opacity 1, 
-     the gradient will only be 'visible' where the cursor is. 
-     But we'll set opacity 1 to enable the effect. */
-  .dark .glass-card::after,
-  .dark .glass-button::after {
-    opacity: 1;
-  }
 
   /* Light mode glass effects - Crystal Style */
   .light .glass {
@@ -185,21 +156,6 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
   }
 
-  .light .glass-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 100;
-    background: radial-gradient(150px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
-        rgba(124, 58, 237, 0.25) 0%,
-        rgba(124, 58, 237, 0.12) 30%,
-        rgba(124, 58, 237, 0.04) 60%,
-        transparent 100%);
-    mix-blend-mode: color-dodge;
-    border-radius: inherit;
-    background-attachment: fixed;
-    pointer-events: none;
-  }
 
   .light .glass-button {
     @apply bg-white/50 text-slate-800 backdrop-blur-xl backdrop-saturate-[150%] transition-all duration-300 font-semibold;
